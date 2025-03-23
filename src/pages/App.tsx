@@ -22,7 +22,6 @@ function App() {
       )
     )
   }
-
   return (
     <div className="App">
       <header className={style.AppStyle}>
@@ -31,7 +30,7 @@ function App() {
           tarefas={tarefas}
           selecionarTarefa={selecionarTarefa}
         />
-        <Cronometro />
+        <Cronometro selecionado={selecionado} />
       </header>
     </div>
   );
