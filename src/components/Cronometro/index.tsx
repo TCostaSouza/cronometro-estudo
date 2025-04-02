@@ -21,8 +21,6 @@ export default function Cronometro({ selecionado }: Props) {
     }
   }, [selecionado]);
 
-  console.log(tempo);
-
   return (
     <div className={style.cronometro}>
       <p className={style.titulo}>Escolha um card e inicie o cronômetro</p>
