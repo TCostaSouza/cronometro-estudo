@@ -59,7 +59,7 @@ class Formulario extends React.Component<{
             step="1"
             />
         </div>
-        <Botao tipo='submit'>
+        <Botao tipo='submit' onClick={() => console.log('começando')} >
           Adicionar
         </Botao>
       </form>
