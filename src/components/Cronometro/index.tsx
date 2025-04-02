@@ -8,9 +8,10 @@ import { useEffect, useState } from 'react';
 
 interface Props {
   selecionado: ITarefa | undefined;
+  finalizarTarefa: () => void;
 }
 
-export default function Cronometro({ selecionado }: Props) {
+export default function Cronometro({ selecionado, finalizarTarefa }: Props) {
   const [tempo, setTempo] = useState<number>();
 
   // O segundo parâmetro é um Array com as variáveis monitoradas.
@@ -27,6 +28,7 @@ export default function Cronometro({ selecionado }: Props) {
         setTempo(contador - 1);
         return regressiva(contador - 1)
       }
+      finalizarTarefa();
     } , 1000)
     }
   
