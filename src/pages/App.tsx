@@ -13,24 +13,44 @@ function App() {
   // Ou seja, não é possível transferir a informação de mudança de estado do item para a Lista
   function selecionarTarefa(tarefaSelecionada: ITarefa) {
     setSelecionado(tarefaSelecionada);
-    setTarefas(
-      tarefasAnteriores => tarefasAnteriores.map(
-        tarefa => ({
-          ...tarefa,
-          selecionado: tarefa.id === tarefaSelecionada.id ? !tarefaSelecionada.selecionado : false
-        })
-      )
-    )
+    setTarefas(tarefasAnteriores =>
+      tarefasAnteriores.map(tarefa => ({
+        ...tarefa,
+        selecionado:
+          tarefa.id === tarefaSelecionada.id
+            ? !tarefaSelecionada.selecionado
+            : false,
+      }))
+    );
   }
+
+  function finalizarTarefa() {
+    if (selecionado) {
+      setSelecionado(undefined);
+      setTarefas(tarefasAnteriores =>
+        tarefasAnteriores.map(tarefa => {
+          if (tarefa.id === selecionado.id) {
+            return {
+              ...tarefa,
+              selecionado: false,
+              completado: true,
+            };
+          }
+          return tarefa;
+        })
+      );
+    }
+  }
+
   return (
     <div className="App">
       <header className={style.AppStyle}>
         <Formulario setTarefas={setTarefas} />
-        <Lista 
-          tarefas={tarefas}
-          selecionarTarefa={selecionarTarefa}
+        <Lista tarefas={tarefas} selecionarTarefa={selecionarTarefa} />
+        <Cronometro
+          selecionado={selecionado}
+          finalizarTarefa={finalizarTarefa}
         />
-        <Cronometro selecionado={selecionado} />
       </header>
     </div>
   );

@@ -9,7 +9,7 @@ class Formulario extends React.Component<{
 }> {
   state = {
     tarefa: "",
-    tempo: "00:00"
+    tempo: "00:00:00"
   }
 
   adicionarTarefa(evento: React.FormEvent<HTMLFormElement>) {
@@ -54,11 +54,12 @@ class Formulario extends React.Component<{
             value={this.state.tempo}
             onChange={evento => this.setState({...this.state, tempo: evento.target.value})}
             id='tempo'
-            min='00:00:00'
-            max='99:59:59'
+            min="00:00:00"
+            max="01:30:00"
+            step="1"
             />
         </div>
-        <Botao tipo='submit'>
+        <Botao tipo='submit' >
           Adicionar
         </Botao>
       </form>
