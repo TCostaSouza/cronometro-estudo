@@ -20,7 +20,7 @@ export default function Item({
         completado ? style.itemCompletado : ''
       }`}
       onClick={() =>
-        selecionarTarefa({
+        !completado && selecionarTarefa({
           tarefa,
           tempo,
           selecionado,
