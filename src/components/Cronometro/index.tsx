@@ -1,35 +1,37 @@
 import Botao from '../Botao';
 import Relogio from './Relogio';
 
-import style from './Cronometro.module.scss'
+import style from './Cronometro.module.scss';
 import { tempoParaSegundos } from '../../common/utils/time';
 import { ITarefa } from '../../types/tarefa';
 import { useEffect, useState } from 'react';
 
 interface Props {
-  selecionado: ITarefa | undefined
+  selecionado: ITarefa | undefined;
 }
 
-export default function Cronometro({ selecionado }:Props) {
+export default function Cronometro({ selecionado }: Props) {
   const [tempo, setTempo] = useState<number>();
 
   // O segundo parâmetro é um Array com as variáveis monitoradas.
   // O primeiro parâmetro é uma função que deve ser executada quando o estado de uma das variáveis mudar.
   useEffect(() => {
     if (selecionado?.tempo) {
-      setTempo(tempoParaSegundos(selecionado.tempo))
+      setTempo(tempoParaSegundos(selecionado.tempo));
     }
-  }, [selecionado])
-  
-  console.log(tempo)
-  
+  }, [selecionado]);
+
+  console.log(tempo);
+
   return (
     <div className={style.cronometro}>
       <p className={style.titulo}>Escolha um card e inicie o cronômetro</p>
       <div className={style.relogioWrapper}>
-        <Relogio tempo = { tempo }/>
+        <Relogio tempo={tempo} />
       </div>
-      <Botao>Começar</Botao>
+      <Botao onClick={() => console.log('começando')}>
+        Começar
+      </Botao>
     </div>
   );
 }
