@@ -1,6 +1,14 @@
-# Getting Started with Create React App
+# Como usar este aplicativo
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+1. Adicionando uma tarefa:
+
+Digite o nome de uma tarefa, selecione a sua duração (HH:MM:SS) e clique em 'Adicionar'. Repita esse processo quantas vezes quiser.
+
+2. Selecione a tarefa desejada.
+
+3. Inicie o cronômetro.
+
+4. Repita o processo até que todas as tarefas estejam concluídas.
 
 ## Available Scripts
 
